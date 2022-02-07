@@ -17,9 +17,11 @@
         <div class="card-body m-0 p-2">
             <div class="row m-0 p-0">
                 <h5 class="card-title col-sm-11">{{ $blog->descripcion }}</h5>
-                <button class="btn btn-primary col-sm-1" title="editar" onclick="location.href ='{{ route('blog.update') . '/' . $blog->id }}';">
-                    Editar
-                </button>
+                @if (auth()->user()->rol_id == 1)
+                    <button class="btn btn-primary col-sm-1" title="editar" onclick="location.href ='{{ route('blog.update') . '/' . $blog->id }}';">
+                        Editar
+                    </button>
+                @endif
             </div>
         </div>
     </div>

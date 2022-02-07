@@ -29,4 +29,22 @@ class BlogController extends Controller
 
         return redirect()->to('/');
     }
+
+    public function update_view($id)
+    {
+        $blog = Blog::find($id);
+        return view('blog.update',compact('blog'));
+    }
+
+    public function update(Request $request)
+    {
+        $blog = Blog::find($request->id);
+        $blog->titulo = $request->titulo;
+        $blog->descripcion = $request->descripcion;
+        if(auth()->user()->rol_id == 1)
+            $blog->visibility = $request->visibility;
+        $blog->save();
+
+        return redirect()->to('/');
+    }
 }

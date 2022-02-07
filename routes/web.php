@@ -34,6 +34,6 @@ Route::get('/blog/insert', [BlogController::class, 'create_view'])->name('blog.c
 
 Route::post('/blog/insert', [BlogController::class, 'create'])->name('blog.create');
 
-Route::get('/blog/update', [BlogController::class, 'update_view'])->name('blog.update_view');
+Route::get('/blog/update/{id}', [BlogController::class, 'update_view'])->name('blog.update_view');
 
 Route::post('/blog/update', [BlogController::class, 'update'])->name('blog.update');
